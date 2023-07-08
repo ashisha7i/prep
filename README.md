@@ -1,6 +1,8 @@
 ### Code for the recommended problems:
 
 01. Given an array of integers, find two numbers such that they add up to a specific target number
+    - Variant: Find the first possible combination if multiple results exist (traverse array in the given order of elements).
+    - Variant: Handle the false positive 'No Result' scenario.
 02. Balanced Brackets
 03. Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 04. Find the contiguous sub array within an array which has the largest sum.
