@@ -3,7 +3,7 @@
 01. - [x] Given an array of integers, find two numbers such that they add up to a specific target number
     - - [ ] Variant A: Find the first possible combination if multiple results exist (traverse array in the given order of elements).
     - - [ ] Variant B: Handle the false positive 'No Result' scenario.
-02. - [ ] Balanced Brackets
+02. - [x] Balanced Brackets
 03. - [ ] Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 04. - [ ] Find the contiguous sub array within an array which has the largest sum.
 05. - [ ] Remove Duplicates from Sorted Array
