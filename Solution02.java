@@ -9,10 +9,18 @@ public class Solution02 {
         System.out.printf("%nString \"%s\" is %s%n", testString, areBracketsBalanced(testString)?"Balanced":"Not Balanced");
     }
 
+    /**
+     * Utility method to check if a string has balanced brackets
+     * @param testString
+     * @return
+     */
     private static boolean areBracketsBalanced(String testString) {
         Stack<Character> stack = new Stack<>();
 
+        // Getting the characters one by one
         for(Character c: testString.toCharArray()) {
+            
+            // If opening bracket, push to stack
             if(c == '(' || c == '[' || c == '{') {
                 stack.push(c);
                 continue;
@@ -24,7 +32,8 @@ public class Solution02 {
             }
 
             char temp;
-
+            
+            // If closing bracket, pop from stack and check if it matches
             switch(c) {
                 case ')':
                     temp = stack.pop();
