@@ -14,8 +14,8 @@
 10. - [ ] Java PriorityQueue Implementation
 11. - [x] Reverse Words in a String
 12. - [x] Given a string, find most repeated character
-13. - [ ] Given a string, find number of times each character is repeated
-14. - [ ] Given a string, find arrange in the order of repeat ions
-15. - [ ] Given a sentence, find most repeated word
+13. - [x] Given a string, find number of times each character is repeated
+14. - [ ] Given a string, find arrange in the order of repetitions
+15. - [x] Given a sentence, find most repeated word
 16. - [ ] Read from a file and find out most repeated word
 17. - [x] Moving all the zeros to the end of the array
