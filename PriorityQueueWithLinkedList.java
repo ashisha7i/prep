@@ -1,17 +1,30 @@
 public class PriorityQueueWithLinkedList {
     public static void main(String[] args) {
         PriorityQ q = new PriorityQ();
-        q.add(new QNode(10));
-        q.add(new QNode(11));
-        q.add(new QNode(12));
-        q.add(new QNode(13));
-        q.add(new QNode(14));
-        q.add(new QNode(15));
+        System.out.println("# Adding: 10, 12, 14, 16");
+        q.add(10);
+        q.add(12);
+        q.add(14);
+        q.add(16);
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
+        
+        System.out.println("# Adding: 13, 11, 9, 15, 17 ");
+        q.add(13);
+        q.add(11);
+        q.add(9);
+        q.add(15);
+        q.add(17);
+        System.out.println("  > Queue: "+ q.printQueue() + " / Size: " + q.getSize() + "\n");
+        
 
-        System.out.println(q.printQueue());
-        System.out.println(q.getSize());
+        System.out.println("Verifying 'poll' operations:");
+        System.out.println(". Poll 1: " + q.poll());
+        System.out.println(". Poll 2: " + q.poll());
+        System.out.println(". Poll 3: " + q.poll());
+
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
+        
     }
-    
 }
 
 /**
@@ -51,25 +64,45 @@ class PriorityQ {
     private int size;
     private QNode head;
 
-    public void add(QNode node) {
+    public void add(int numToAdd) {
         if(head == null) {
-            head = node;
+            head = new QNode(numToAdd, null);
             this.size++;
         } else {
-            QNode start = head;
-            while(true) {
-                QNode next = start.getNext();
-                if(next == null) { // Last node - add the new node here
-                    start.setNext(node);
-                    this.size++;
-                    break;
-                } else {
-                    start = start.getNext();
-                }
+            if(head != null && head.getValue() > numToAdd) {
+                head = new QNode(numToAdd, head);
+            } else {
+                QNode theNode = getLastSmallerNode(numToAdd);
+                theNode.setNext(new QNode(numToAdd, theNode.getNext()));
             }
+            this.size++;
         }
     }
 
+    private QNode getLastSmallerNode(int numToAdd) {
+        QNode node = this.head;
+        
+
+        while(node.getNext() != null && node.getValue() <= numToAdd) {
+            if(node.getNext().getValue() > numToAdd) {
+                return node;
+            }
+            node = node.getNext();
+        }
+
+        return node;
+    }
+
+    public int poll() {
+        int val = head.getValue();
+        
+        if(head.getNext() != null) {
+            this.head  = head.getNext();
+            this.size--;
+        }
+
+        return val;
+    }
 
     public int getSize() {
         return this.size;
