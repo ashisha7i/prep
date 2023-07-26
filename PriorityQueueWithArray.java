@@ -1,4 +1,4 @@
-public class PriorityQueueDS {
+public class PriorityQueueWithArray {
     public static void main(String[] args) {
         MyPriorityQueue mpq = new MyPriorityQueue(10);
         mpq.insert(1);
