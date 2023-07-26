@@ -5,8 +5,8 @@ import java.util.List;
 public class MergeTwoSortedLists {
     public static void main(String[] args) {
         // Given lists
-        List<Integer> listOne = Arrays.asList( 1, 2, 3, 5, 7, 8, 9, 14);
-        List<Integer> listTwo = Arrays.asList(0, 2, 3, 4, 7, 8, 12, 13, 16, 18);
+        List<Integer> listOne = Arrays.asList( 1, 2, 3, 5, 7, 8, 9, 14, 15, 16, 17, 18, 19, 20, 21);
+        List<Integer> listTwo = Arrays.asList(0, 2, 3, 4, 7, 8, 12, 13, 20, 28);
         
         // Get the merged list and print it
         List<Integer> mergedList = mergeLists(listOne, listTwo);
