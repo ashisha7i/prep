@@ -6,7 +6,7 @@ public class PriorityQueueWithLinkedList {
         q.add(12);
         q.add(14);
         q.add(16);
-        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.size() + "\n");
         
         System.out.println("# Adding: 13, 11, 9, 15, 17 ");
         q.add(13);
@@ -14,7 +14,7 @@ public class PriorityQueueWithLinkedList {
         q.add(9);
         q.add(15);
         q.add(17);
-        System.out.println("  > Queue: "+ q.printQueue() + " / Size: " + q.getSize() + "\n");
+        System.out.println("  > Queue: "+ q.printQueue() + " / Size: " + q.size() + "\n");
         
 
         System.out.println("Verifying 'poll' operations:");
@@ -22,7 +22,7 @@ public class PriorityQueueWithLinkedList {
         System.out.println(". Poll 2: " + q.poll());
         System.out.println(". Poll 3: " + q.poll());
 
-        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.size() + "\n");
         
     }
 }
@@ -81,7 +81,6 @@ class PriorityQ {
 
     private QNode getLastSmallerNode(int numToAdd) {
         QNode node = this.head;
-        
 
         while(node.getNext() != null && node.getValue() <= numToAdd) {
             if(node.getNext().getValue() > numToAdd) {
@@ -104,8 +103,12 @@ class PriorityQ {
         return val;
     }
 
-    public int getSize() {
+    public int size() {
         return this.size;
+    }
+
+    public int peek() {
+        return head.getValue();
     }
 
     public String printQueue() {
