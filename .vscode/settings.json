@@ -2,6 +2,7 @@
     "editor.acceptSuggestionOnEnter": "on",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/Users/vini/Downloads/junit-platform-console-standalone-1.10.0.jar"
+        "/Users/vini/Downloads/junit-platform-console-standalone-1.10.0.jar",
+        "/Users/A407668/Downloads/junit-platform-console-standalone-1.10.0.jar"
     ]
 }

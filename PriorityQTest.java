@@ -22,23 +22,23 @@ public class PriorityQTest {
         pq.add(7);
         pq.add(4);
         Assert.assertEquals("1 2 3 4 5 6 7", pq.printQueue());
-        Assert.assertEquals(7, pq.size());
+        Assert.assertEquals(7, pq.getSize());
     }
 
     @Test
     public void testPoll() {
         System.out.println("Poll");
         Assert.assertEquals(2, pq.poll());
-        Assert.assertEquals(3, pq.size()); // Poll should reduce the size of the list
+        Assert.assertEquals(3, pq.getSize()); // Poll should reduce the size of the list
     }
 
     @Test
     public void testPeek() {
         System.out.println("Peek test");
         Assert.assertEquals(2, pq.peek());
-        Assert.assertEquals(4, pq.size()); // Peek should not change the size of queue
+        Assert.assertEquals(4, pq.getSize()); // Peek should not change the size of queue
         pq.add(1);
         Assert.assertEquals(1, pq.peek());
-        Assert.assertEquals(5, pq.size()); 
+        Assert.assertEquals(5, pq.getSize()); 
     }
 }

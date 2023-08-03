@@ -35,12 +35,20 @@ class MyPriorityQueue {
     private int[] arr;
     private int itemCount;
 
+    /**
+     * Constructor with size of the Queue (since we are using array as the base data structure)
+     * @param size
+     */
     public MyPriorityQueue(int size) {
         MAX = size;
-        arr = new int[MAX];
+        arr = new int[MAX]; 
         itemCount = 0;
     }
 
+    /**
+     * Insert data into the queue
+     * @param data
+     */
     public void insert(int data) {
         int i = 0;
 

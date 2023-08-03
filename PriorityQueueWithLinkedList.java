@@ -6,7 +6,7 @@ public class PriorityQueueWithLinkedList {
         q.add(12);
         q.add(14);
         q.add(16);
-        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.size() + "\n");
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
         
         System.out.println("# Adding: 13, 11, 9, 15, 17 ");
         q.add(13);
@@ -14,7 +14,7 @@ public class PriorityQueueWithLinkedList {
         q.add(9);
         q.add(15);
         q.add(17);
-        System.out.println("  > Queue: "+ q.printQueue() + " / Size: " + q.size() + "\n");
+        System.out.println("  > Queue: "+ q.printQueue() + " / Size: " + q.getSize() + "\n");
         
 
         System.out.println("Verifying 'poll' operations:");
@@ -22,7 +22,7 @@ public class PriorityQueueWithLinkedList {
         System.out.println(". Poll 2: " + q.poll());
         System.out.println(". Poll 3: " + q.poll());
 
-        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.size() + "\n");
+        System.out.println("  > Queue: " + q.printQueue() + " / Size: " + q.getSize() + "\n");
         
     }
 }
@@ -64,24 +64,37 @@ class PriorityQ {
     private int size;
     private QNode head;
 
+    /**
+     * Add a new element to the queue
+     * @param numToAdd
+     */
     public void add(int numToAdd) {
-        if(head == null) {
-            head = new QNode(numToAdd, null);
-            this.size++;
+        if(head == null) { // First Element
+            head = new QNode(numToAdd, null); // There is no next node so we pass null
         } else {
-            if(head != null && head.getValue() > numToAdd) {
+            // If the already inserted value is greater than the value to be inserted
+            // Make the new node as the head and point the next to the old head
+            if(head.getValue() > numToAdd) {
                 head = new QNode(numToAdd, head);
             } else {
+                // Find the last node that is smaller than the value to be inserted
                 QNode theNode = getLastSmallerNode(numToAdd);
+                // Insert the new node after the last smaller node and point the next to the old next
                 theNode.setNext(new QNode(numToAdd, theNode.getNext()));
             }
-            this.size++;
         }
+        this.size++; // Increment the size
     }
 
+    /**
+     * Get the last node that is smaller than the value to be inserted
+     * @param numToAdd
+     * @return
+     */
     private QNode getLastSmallerNode(int numToAdd) {
         QNode node = this.head;
-
+        
+        // Start from the head and iterate until the next node is null or the value is greater than the value to be inserted
         while(node.getNext() != null && node.getValue() <= numToAdd) {
             if(node.getNext().getValue() > numToAdd) {
                 return node;
@@ -92,6 +105,10 @@ class PriorityQ {
         return node;
     }
 
+    /**
+     * Poll the first element from the queue
+     * @return
+     */
     public int poll() {
         int val = head.getValue();
         
@@ -103,14 +120,26 @@ class PriorityQ {
         return val;
     }
 
-    public int size() {
+    /**
+     * Get the size of the queue
+     * @return
+     */
+    public int getSize() {
         return this.size;
     }
 
+    /**
+     * Peek the first element from the queue (does not move the pointer)
+     * @return
+     */
     public int peek() {
         return head.getValue();
     }
 
+    /**
+     * Utility method to print the queue
+     * @return
+     */
     public String printQueue() {
         StringBuilder sb = new StringBuilder();
         QNode curr = head;
