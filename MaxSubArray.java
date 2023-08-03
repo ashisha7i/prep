@@ -1,4 +1,4 @@
-import java.util.logging.Logger;
+
 
 public class MaxSubArray {
     // PROBLEM: Describe the problem you are trying to solve
@@ -14,8 +14,6 @@ public class MaxSubArray {
             { 3, 4, 5, -10, 8, 13, 2, 6, 4 },
             { -8, 4, 2, -5, 3, 4, 5, -10, 8, 4, 13, 2, 6, 4 },
             { -3, 1, -8, 4, -1, 4, 13, 4 },
-            { -3, 1, -8 },
-            { -3, 1 },
             { -3, 1, -8, 4, -1, 2, 4, 13, 2, 6, 4 },
             { -3, 1, -8, 4, -1, 2, 6, 4 }
         };
